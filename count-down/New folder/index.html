@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count-Down app</title>
+    <link rel= "stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="main">
+        <div class="overlay">
+            <div class="title">
+                We Are Coming Soon
+            </div>
+            <div class="title" id="enddate">
+                16 December 2023 11:29 AM
+            </div>
+            <div class="col">
+                <div>
+                    <label for="">Days</label>
+                    <br>
+                    <input type="text" readonly value="0"> 
+                </div>
+                <div><label for="">Hours</label>
+                    <br><input type="text" readonly value="0">
+                 </div>
+                <div>
+                    <label for="">Minutes</label>
+                    <br>
+                    <input type="text"readonly value="0" > 
+                </div>
+                <div>
+                    <label for="">Seconds</label>
+                    <br>
+                    <input type="text" readonly value="0">
+                 </div>
+
+
+
+                
+            </div>
+        </div>
+    </div>
+    
+ 
+    
+
+
+<Script src = 'script.js'></Script>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+</head>
+<body>
+    <div id="enddate"></div>
+    <input type="text" placeholder="Days" readonly>
+    <input type="text" placeholder="Hours" readonly>
+    <input type="text" placeholder="Minutes" readonly>
+    <input type="text" placeholder="Seconds" readonly>
+
+    <video id="celebrationVideo" width="640" height="360" controls>
+        <source src="your-video-file.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <script>
+        const enddate = '1 January 2024 12:00 AM';
+        document.getElementById('enddate').innerText = enddate;
+        const inputs = document.querySelectorAll('input');
+        const video = document.getElementById('celebrationVideo');
+
+        function clock() {
+            const end = new Date(enddate);
+            const now = new Date();
+            
+            const diff = (end - now) / 1000; // in seconds
+
+            // Check if the countdown has reached zero or is negative
+            if (diff <= 0) {
+                // Perform action when the end date is reached
+                document.getElementById('enddate').innerText = '🎉 Happy New Year! 🎉';
+
+                // Trigger fireworks or any other action
+                // Example: triggerFireworks();
+                
+                // Play the video in fullscreen
+                playVideoFullscreen();
+
+                return; // Exit the function if the end date is reached
+            }
+
+            let days = Math.floor(diff / 24 / 60 / 60);
+            let hours = Math.floor((diff / 60 / 60) % 24);
+            let minutes = Math.floor((diff / 60) % 60);
+            let seconds = Math.floor(diff % 60);
+
+            inputs[0].value = days;
+            inputs[1].value = hours;
+            inputs[2].value = minutes;
+            inputs[3].value = seconds;
+        }
+
+        function playVideoFullscreen() {
+            // Play the video
+            video.play();
+
+            // Request fullscreen
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.mozRequestFullScreen) { /* Firefox */
+                video.mozRequestFullScreen();
+            } else if (video.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) { /* IE/Edge */
+                video.msRequestFullscreen();
+            }
+        }
+
+        clock();
+
+        setInterval(function () {
+            clock();
+        }, 1000);
+    </script>
+</body>
+</html> -->

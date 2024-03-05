@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count-Down app</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="overlay">
+            <div class="title">
+                We Are Coming Soon
+            </div>
+            <div class="title" id="enddate">
+                31 December 2023 12:54 PM
+            </div>
+            <div class="col">
+                <div>
+                    <label for="">Days</label>
+                    <br>
+                    <input type="text" readonly value="0"> 
+                </div>
+                <div>
+                    <label for="">Hours</label>
+                    <br>
+                    <input type="text" readonly value="0">
+                </div>
+                <div>
+                    <label for="">Minutes</label>
+                    <br>
+                    <input type="text" readonly value="0" > 
+                </div>
+                <div>
+                    <label for="">Seconds</label>
+                    <br>
+                    <input type="text" readonly value="0">
+                </div>
+                <div id="playButton" style="display: none;">
+                    <button onclick="playVideo()">Play Video</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const enddate = '01 january 2024 12:05 AM';
+        document.getElementById('enddate').innerText = enddate;
+        const inputs = document.querySelectorAll('input');
+        const playButton = document.getElementById('playButton');
+
+        function playVideo() {
+            // Create a new div to contain the video element
+            const videoContainer = document.createElement('div');
+            videoContainer.innerHTML = `
+                <video id="celebrationVideo" width="100%" height="100%" controls ="play">
+                    <source src="wish.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            `;
+
+            // Replace the entire body content with the video container
+            document.body.innerHTML = '';
+            document.body.appendChild(videoContainer);
+        }
+
+        function clock() {
+            const end = new Date(enddate);
+            const now = new Date();
+
+            const diff = (end - now) / 1000; // in seconds
+
+            // Check if the countdown has reached zero or is negative
+            if (diff <= 0) {
+                // Perform action when the end date is reached
+                document.getElementById('enddate').innerText = '🎉 Happy New Year! 🎉';
+
+                // Display the play button
+                playButton.style.display = 'block';
+
+                return; // Exit the function if the end date is reached
+            }
+
+            let days = Math.floor(diff / 24 / 60 / 60);
+            let hours = Math.floor((diff / 60 / 60) % 24);
+            let minutes = Math.floor((diff / 60) % 60);
+            let seconds = Math.floor(diff % 60);
+
+            inputs[0].value = days;
+            inputs[1].value = hours;
+            inputs[2].value = minutes;
+            inputs[3].value = seconds;
+        }
+
+        clock();
+
+        setInterval(function () {
+            clock();
+        }, 1000);
+    </script>
+</body>
+</html>

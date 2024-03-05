@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.main{
+    width: 100%;
+    height: 100vh;
+    background-image: url('bg.webp');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.box{
+    width: 700px;
+    height: 300px;
+    background-color: black;
+    border: 2px solid rgb(112, 99, 99);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+#kit{
+    cursor: pointer;
+    padding: 10px;
+    width: 80px;
+    height: 70px;
+    background-color: rgb(171, 137, 137);
+    color: rgb(12, 5, 5);
+    border: none;
+    border-radius: 10px;
+    font-size: 25px;
+
+
+    
+}
+
+
+h2{
+     color: white;
+}
